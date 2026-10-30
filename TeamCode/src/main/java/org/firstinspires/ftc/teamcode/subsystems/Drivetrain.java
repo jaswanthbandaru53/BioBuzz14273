@@ -1,8 +1,10 @@
 package org.firstinspires.ftc.teamcode.subsystems;
 
+import static com.pedropathing.ivy.commands.Commands.infinite;
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.gamepad1;
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap;
 
+import com.pedropathing.ivy.Command;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Gamepad;
@@ -43,7 +45,7 @@ public class Drivetrain {
 
     public void forzaDrive(Gamepad gamepad) {
 
-        double x = gamepad.right_trigger-gamepad.left_trigger;
+        double x = -gamepad.right_trigger+gamepad.left_trigger;
         double y =  -gamepad.left_stick_x;
         double r = -gamepad.right_stick_x;
 
@@ -80,5 +82,12 @@ public class Drivetrain {
         frontRight.setPower(frontRightPower / max);
         backLeft.setPower(backLeftPower / max);
         backRight.setPower(backRightPower / max);
+    }
+    public void switchDriveMode() {Config.forzaDrive = !Config.forzaDrive;}
+
+    public Command periodic() {
+        return infinite(() ->{
+//            telemetry.addData("Forza Drive : ", Config.forzaDrive);
+        });
     }
 }

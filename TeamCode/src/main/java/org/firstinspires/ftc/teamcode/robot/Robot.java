@@ -10,6 +10,7 @@ public class Robot {
     public final Telemetry telemetry;
     public final Intake intake;
     public final Drivetrain drivetrain;
+//    public final Test test;
 
 
     public Robot(OpMode opMode) {
@@ -18,5 +19,6 @@ public class Robot {
 
         intake = new Intake(this);
         drivetrain = new Drivetrain(this);
+//        test = new Test(this);
     }
 }
