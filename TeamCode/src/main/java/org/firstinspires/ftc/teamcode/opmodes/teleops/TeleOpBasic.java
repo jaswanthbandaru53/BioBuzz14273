@@ -22,6 +22,7 @@ public class TeleOpBasic extends RobotOpMode {
     public void init_loop() {
         autoPrompter.prompt("drivemode", new BooleanPrompt("Forza Drive", true));
         autoPrompter.run();
+        robot.limelight.start();
         super.init_loop();
     }
 

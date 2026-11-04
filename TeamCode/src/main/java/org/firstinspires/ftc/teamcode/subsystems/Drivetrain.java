@@ -87,7 +87,7 @@ public class Drivetrain {
 
     public Command periodic() {
         return infinite(() ->{
-//            telemetry.addData("Forza Drive : ", Config.forzaDrive);
+            telemetry.addData("Forza Drive : ", Config.forzaDrive);
         });
     }
 }

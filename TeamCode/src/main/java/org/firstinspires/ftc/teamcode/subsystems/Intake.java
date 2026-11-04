@@ -103,9 +103,9 @@ public class Intake {
             }
 
 
-//            telemetry.addData("Intake Current", intakeMotor.getCurrent(CurrentUnit.MILLIAMPS));
-//            telemetry.addData("Intake Velocity", intakeMotor.getVelocity());
-//            telemetry.addData("Passive Flower Active ", flowerMode);
+            telemetry.addData("Intake Current", intakeMotor.getCurrent(CurrentUnit.MILLIAMPS));
+            telemetry.addData("Intake Velocity", intakeMotor.getVelocity());
+            telemetry.addData("Passive Flower Active ", flowerMode);
         });
     }
 
