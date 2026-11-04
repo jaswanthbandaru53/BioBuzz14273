@@ -20,6 +20,7 @@ public class TeleOpBasic extends RobotOpMode {
 
     @Override
     public void init_loop() {
+        // this gives a prompt upon init, read doc at marrow lib, screw u Tanish
         autoPrompter.prompt("drivemode", new BooleanPrompt("Forza Drive", true));
         autoPrompter.run();
         robot.limelight.start();
@@ -28,21 +29,20 @@ public class TeleOpBasic extends RobotOpMode {
 
     @Override
     public void loop() {
-        /* The code below defines whether the drive is Forza or Arcade*/
+        /* The code below defines whether the drive is Forza or Arcade, Tanish, it uses the marrow lib, read the doc if u want to understand, im not epxlaining it to you*/
         Config.forzaDrive = autoPrompter.get("drivemode");
         if (Config.forzaDrive) {
             robot.drivetrain.forzaDrive(gamepad1);
         } else {
             robot.drivetrain.arcadeDrive(gamepad1);
         }
+        // MAKE SURE THAT BUTTON IS EITHER WAS RELEASED OR WAS PRESSED(cough cough Tanish)
 
         if (gamepad1.rightBumperWasReleased()) {
             robot.intake.intakeOff().schedule();
             robot.intake.transferOn();
         }
-        if (gamepad1.dpadUpWasReleased()) {
-            robot.drivetrain.switchDriveMode();
-        }
+        // Tanish, the following define Intake, it was really obvious but yk had to tell ya
 
         if (gamepad1.rightBumperWasPressed()) {
             robot.intake.intakeOn().schedule();
@@ -51,6 +51,10 @@ public class TeleOpBasic extends RobotOpMode {
         if (gamepad1.leftBumperWasPressed()) {
             robot.intake.intakeReverse().schedule();
             robot.intake.transferReverse();
+        }
+        // This switches drive mode
+        if (gamepad1.dpadUpWasReleased()) {
+            robot.drivetrain.switchDriveMode();
         }
         super.loop();
     }
