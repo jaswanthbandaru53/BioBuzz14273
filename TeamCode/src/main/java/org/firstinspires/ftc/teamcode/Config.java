@@ -36,4 +36,6 @@ public class Config {
     public static double intakeOffPower = 0;
     public static double intakeReversePower = 1;
     public static double intakeShortReverseTimeMs = 150;
+    public static boolean pollenDetector = false;
+
 }
